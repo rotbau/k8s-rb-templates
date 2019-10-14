@@ -1,0 +1,13 @@
+{
+    "name": "app1-custom-network",
+    "description": "Network Profile for custom app",
+    "parameters": {
+        "fip_pool_ids": [
+            "655179f9-74bf-4449-b641-c6e1b3015286"
+        ],
+        "pod_ip_block_ids": [
+            "da38a050-6ebc-4c4d-bc6d-d82881da7b3c"
+        ],
+        "pod_subnet_prefix" : 27
+    }
+}

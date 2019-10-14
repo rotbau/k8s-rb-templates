@@ -1,0 +1,13 @@
+{
+    "name": "dns-k8-api",
+    "description": "Network profile using DNS for K8s API",
+    "parameters": {
+      "nodes_dns": [
+        "192.168.79.25"
+        ],            
+      "fip_pool_ids": [
+        "23d69923-2416-462e-a758-0996cf2f6e38"
+        ],
+      "dns_lookup_mode": "API"
+    }
+}

@@ -1,0 +1,9 @@
+apiVersion: pksapi.io/v1beta1
+kind: ClusterLogSink
+metadata:
+   name: cluster-sink-yaml
+spec:
+   type: syslog
+   host: 192.168.79.40
+   port: 514
+   enable_tls: true

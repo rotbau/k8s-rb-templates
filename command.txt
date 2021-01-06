@@ -1,0 +1,7 @@
+kubectl get clusterrolebindings -o json | jq -r '
+  .items[] | 
+  select(
+    .subjects // [] | .[] | 
+    [.kind,.namespace,.name] == ["ServiceAccount","kube-system","replicaset-controller"]
+  ) |
+  .metadata.name'

@@ -1,0 +1,27 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: 100-psp
+rules:
+- apiGroups:
+  - policy
+  resourceNames:
+  - 100-psp
+  resources:
+  - podsecuritypolicies
+  verbs:
+  - use
+---
+# Cluster role binding for default pod security policy granting all authenticated users access
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: 100-psp
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: 100-psp
+subjects:
+- apiGroup: rbac.authorization.k8s.io
+  kind: Group
+  name: system:authenticated

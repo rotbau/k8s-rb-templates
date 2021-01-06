@@ -1,0 +1,29 @@
+# 200-psp-binding.yaml
+# Cluster role which grants access to the default pod security policy
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: 200-psp
+rules:
+- apiGroups:
+  - policy
+  resourceNames:
+  - 200-psp
+  resources:
+  - podsecuritypolicies
+  verbs:
+  - use
+---
+# Cluster role binding for default pod security policy granting all authenticated users access
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: 200-psp
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: 200-psp
+subjects:
+- kind: ServiceAccount
+  name: replicaset-controller
+  namespace: kube-system

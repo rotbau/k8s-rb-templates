@@ -1,0 +1,14 @@
+kind: Ingress
+metadata:
+  name: cafe-ingress
+  annotations:
+    ingress.kubernetes.io/rewrite-target: /
+spec:
+  rules:
+  - host: cafe.example.com
+    http:
+      paths:
+      - path: /bar
+        backend:
+          serviceName: tea-svc
+          servicePort: 80
